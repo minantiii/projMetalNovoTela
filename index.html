@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Central Metalsystem</title>
+<style>
+  :root {
+    --preto: #121212; --grafite: #1C1C1E; --borda: #2E2E30;
+    --amarelo: #FDB813; --branco: #F5F5F7; --cinza: #9A9A9E;
+    --aviso-fundo: #3A2E0B; --aviso-texto: #F5D272;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 20px; background: var(--preto); color: var(--branco);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  .folha { max-width: 640px; margin: 0 auto; }
+  .marca { color: var(--amarelo); font-weight: 700; letter-spacing: .18em;
+           font-size: 13px; text-transform: uppercase; }
+  h1 { font-size: 30px; margin: 8px 0 4px; line-height: 1.2; }
+  .sub { color: var(--cinza); margin: 0 0 28px; }
+  .fio { height: 2px; background: var(--amarelo); margin: 0 0 28px; }
+  .baixar {
+    display: inline-block; background: var(--amarelo); color: #101010;
+    font-weight: 700; font-size: 17px; text-decoration: none;
+    padding: 16px 30px; border-radius: 8px;
+  }
+  .baixar:hover { background: #FFC93C; }
+  .versao { color: var(--cinza); font-size: 14px; margin-top: 12px; }
+  .cartao {
+    background: var(--grafite); border: 1px solid var(--borda);
+    border-radius: 10px; padding: 20px 24px; margin: 28px 0;
+  }
+  .cartao h2 { font-size: 16px; margin: 0 0 12px; color: var(--amarelo); }
+  .aviso {
+    background: var(--aviso-fundo); color: var(--aviso-texto);
+    border-radius: 8px; padding: 16px 20px; margin: 28px 0; font-size: 15px;
+  }
+  ol, ul { padding-left: 22px; margin: 0; }
+  li { margin: 7px 0; }
+  code { background: #0D0D0D; padding: 2px 7px; border-radius: 4px; font-size: 14px; }
+  footer { color: #6A6A6E; font-size: 13px; margin-top: 40px;
+           border-top: 1px solid var(--borda); padding-top: 20px; }
+</style>
+</head>
+<body>
+<div class="folha">
+
+  <div class="marca">Metalsystem — Peças Automotivas</div>
+  <h1>Central Metalsystem</h1>
+  <p class="sub">Gera as imagens dos seus anúncios pela API do Gemini, a partir de uma planilha.</p>
+  <div class="fio"></div>
+
+  <a class="baixar" id="baixar"
+     href="https://github.com/minantiii/projMetalNovoTela/releases/latest/download/CentralMetalsystem.exe">Baixar o programa</a>
+  <p class="versao">Windows · versão <span id="versao">—</span> · <span id="tamanho">—</span></p>
+
+  <div class="aviso">
+    <strong>Na primeira vez, o Windows vai desconfiar.</strong><br>
+    Aparece a tela azul <em>"O Windows protegeu o seu computador"</em>.
+    Clique em <strong>Mais informações</strong> e depois em
+    <strong>Executar assim mesmo</strong>. Acontece com todo programa novo sem
+    certificado pago; é só na primeira vez.
+  </div>
+
+  <div class="cartao">
+    <h2>Como usar</h2>
+    <ol>
+      <li>Dois cliques no arquivo baixado. Não tem instalação.</li>
+      <li>Abra <strong>Fotos de anúncio por API</strong>.</li>
+      <li>Cole a chave da API do Gemini — uma vez só.</li>
+      <li>Escolha a planilha (colunas <code>MLB</code> ou <code>SKU</code>, <code>FOTO</code>, <code>TITULO</code>…), o modelo e a pasta.</li>
+      <li>Clique em <strong>COMEÇAR</strong> e deixe trabalhando.</li>
+    </ol>
+  </div>
+
+  <div class="cartao">
+    <h2>O que o computador precisa ter</h2>
+    <ul>
+      <li><strong>Windows</strong> e internet.</li>
+      <li>Uma chave da API do Gemini, de uma conta Google com cobrança ativa.</li>
+      <li>Mais nada: o programa é um arquivo só e não instala nada.</li>
+    </ul>
+  </div>
+
+  <div class="cartao">
+    <h2>Atualizações</h2>
+    <p style="margin:0">O programa se mantém atualizado sozinho: quando sair
+    uma versão nova, ele a instala na próxima vez que você fechar. Não precisa
+    fazer nada, nem voltar aqui.</p>
+  </div>
+
+  <footer>
+    Em caso de problema, mande o arquivo de detalhes que o programa indica no
+    botão <strong>Ver detalhes</strong>.
+  </footer>
+
+</div>
+
+<script>
+  // os numeros vem do mesmo versao.json que o programa instalado consulta,
+  // para a pagina nunca anunciar uma versao diferente da que sera baixada
+  fetch("versao.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById("versao").textContent = d.versao;
+      document.getElementById("tamanho").textContent =
+        Math.round(d.tamanho / 1e6) + " MB";
+      // o botao passa a apontar para o arquivo exato desta versao; o href do
+      // HTML e' o /latest/, que continua valendo se o javascript falhar
+      if (d.url) { document.getElementById("baixar").href = d.url; }
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>
