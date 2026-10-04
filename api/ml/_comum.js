@@ -22,7 +22,11 @@ function credenciais() {
 // O "state" que o programa manda e' "<porta>.<aleatorio>": a porta diz para
 // onde devolver o codigo no computador do cliente, o aleatorio o programa
 // confere para saber que a resposta e' do pedido que ELE fez.
+//
+// "remoto.<aleatorio>" e' o link que o desenvolvedor manda para o cliente: o
+// /retorno mostra o codigo numa pagina em vez de mandar para 127.0.0.1.
 function lerEstado(estado) {
+  if (/^remoto\.[A-Za-z0-9_-]{16,64}$/.test(String(estado || ""))) return { remoto: true };
   const m = /^(\d{4,5})\.([A-Za-z0-9_-]{16,64})$/.exec(String(estado || ""));
   if (!m) return null;
   const porta = Number(m[1]);
