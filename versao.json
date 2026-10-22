@@ -1,9 +1,9 @@
 {
-  "versao": "0.2.0",
-  "url": "https://github.com/minantiii/projMetalNovoTela/releases/download/v0.2.0/CentralMetalsystem.exe",
-  "sha256": "1a100c6ed742d6f4af7a561af33a5fc95a998664f4cfe741ecb6da566248241b",
-  "tamanho": 20343613,
-  "notas": "Modulo 2: fotos de veiculos pela API do Gemini",
+  "versao": "0.3.0",
+  "url": "https://github.com/minantiii/projMetalNovoTela/releases/download/v0.3.0/CentralMetalsystem.exe",
+  "sha256": "f5a37c12af29f146799b3c5e80bbd015dadb2c67860d109682ab53bbf05b5c4e",
+  "tamanho": 20364773,
+  "notas": "Modulo 3: envio das fotos aos anuncios pela API do Mercado Livre",
   "bloqueado": false,
   "mensagem": ""
 }
