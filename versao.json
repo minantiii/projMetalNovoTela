@@ -1,9 +1,9 @@
 {
-  "versao": "0.3.0",
-  "url": "https://github.com/minantiii/projMetalNovoTela/releases/download/v0.3.0/CentralMetalsystem.exe",
-  "sha256": "f5a37c12af29f146799b3c5e80bbd015dadb2c67860d109682ab53bbf05b5c4e",
-  "tamanho": 20364773,
-  "notas": "Modulo 3: envio das fotos aos anuncios pela API do Mercado Livre",
+  "versao": "0.4.0",
+  "url": "https://github.com/minantiii/projMetalNovoTela/releases/download/v0.4.0/CentralMetalsystem.exe",
+  "sha256": "687e11198c8cdc62fd3281b0be1ee7ea71a85703822f5d79c5b36bb7c6a82e30",
+  "tamanho": 60102316,
+  "notas": "Modulo 4: videos nos anuncios pelo bot do Mercado Livre",
   "bloqueado": false,
   "mensagem": ""
 }
